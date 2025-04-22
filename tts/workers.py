@@ -107,11 +107,11 @@ class FastPitchWorker(Worker):
         BASE = "/checkpoints/fastpitch"
         self.male1_model = FastpitchModel(
             f"{BASE}/male1/FastPitch.ckpt", f"{BASE}/male1/HifiGan.ckpt", "./male_conf.yaml")
-        # self.female1_model = FastpitchModel(
-        #     f"{BASE}/female1/FastPitch.ckpt", f"{BASE}/female1/HifiGan.ckpt", "./female_conf.yaml")
+        self.female1_model = FastpitchModel(
+            f"{BASE}/female1/FastPitch.ckpt", f"{BASE}/female1/HifiGan.ckpt", "./female_conf.yaml")
 
         self.male1_synthesizer = Synthesizer(self.male1_model)
-        # self.female1_synthesizer = Synthesizer(self.female1_model)
+        self.female1_synthesizer = Synthesizer(self.female1_model)
 
     def run_inference(self, ch, method, properties, body):
         podcast_id = body.decode()

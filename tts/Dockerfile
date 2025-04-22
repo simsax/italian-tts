@@ -10,6 +10,7 @@ RUN chmod +x ./install.sh && ./install.sh
 
 COPY requirements.txt requirements.txt
 
+RUN python3 -m pip install --upgrade setuptools wheel      
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
